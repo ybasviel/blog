@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lnln.dev","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="メリークリスマス!!!!!!今日は工学研究部のアドベントカレンダー最終日(UEC koken Advent Calendar 2020)です。皆さんのドベカレの最終日はいつですか？ 調布祭プラレール企画に関わったメンバーで記事をリレー？することになった…のですが、実は私は開発には関わっておらず、当日の設営のお手伝いしかしてません。なので降りるつもりだったのですが、たこやき先輩の押しに負けました。「">
+<meta property="og:type" content="article">
+<meta property="og:title" content="調布祭のお手伝いをした話">
+<meta property="og:url" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/index.html">
+<meta property="og:site_name" content="りんりんログ">
+<meta property="og:description" content="メリークリスマス!!!!!!今日は工学研究部のアドベントカレンダー最終日(UEC koken Advent Calendar 2020)です。皆さんのドベカレの最終日はいつですか？ 調布祭プラレール企画に関わったメンバーで記事をリレー？することになった…のですが、実は私は開発には関わっておらず、当日の設営のお手伝いしかしてません。なので降りるつもりだったのですが、たこやき先輩の押しに負けました。「">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/001.jpg">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/small-004.jpg">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/004.jpg">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/002.jpg">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/003.jpg">
+<meta property="og:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/small-005.jpg">
+<meta property="article:published_time" content="2020-12-24T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-31T21:13:52.065Z">
+<meta property="article:author" content="lnln_ch">
+<meta property="article:tag" content="ものづくり">
+<meta property="article:tag" content="AdventCalender">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/001.jpg">
+
+<link rel="canonical" href="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ja'
+  };
+</script>
+
+  <title>調布祭のお手伝いをした話 | りんりんログ</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="ナビゲーションバーの切り替え">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">りんりんログ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ja">
+    <link itemprop="mainEntityOfPage" href="http://lnln.dev/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/1445826552197836801/tG_E7Vm3_400x400.jpg">
+      <meta itemprop="name" content="lnln_ch">
+      <meta itemprop="description" content="Twitter@lnln_ch のブログ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="りんりんログ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          調布祭のお手伝いをした話
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">投稿日</span>
+
+              <time title="作成日：2020-12-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-25T00:00:00+09:00">2020-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">編集日</span>
+                <time title="修正日：2022-04-01 06:13:52" itemprop="dateModified" datetime="2022-04-01T06:13:52+09:00">2022-04-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>メリークリスマス!!!!!!<br>今日は工学研究部のアドベントカレンダー最終日(<a target="_blank" rel="noopener" href="https://adventar.org/calendars/5692">UEC koken Advent Calendar 2020</a>)です。皆さんのドベカレの最終日はいつですか？</p>
+<p>調布祭プラレール企画に関わったメンバーで記事をリレー？することになった…のですが、実は私は開発には関わっておらず、当日の設営のお手伝いしかしてません。なので降りるつもりだったのですが、たこやき先輩の押しに負けました。「感想みたいな軽いのでいいから〜」って言われたので、そういう感じで書きます。記事を書くメンバー5人の中でトリを担当するものだと思っていたのですが、まさかドベカレの最終日になってしまいました…技術的な話は多分ないです。</p>
+<p>一応ドベカレらしい？記事も先週書いたのでこちらもどうぞ…<br><a href="Discord%E3%81%A7LaTeX%E3%82%92%E6%9B%B8%E3%81%8D%E3%81%9F%E3%81%84">https://lnln.dev/blog/2020-12-18.html</a></p>
+<span id="more"></span>
+<h2 id="調布祭準備日の更に前日"><a href="#調布祭準備日の更に前日" class="headerlink" title="調布祭準備日の更に前日"></a>調布祭準備日の更に前日</h2><p>木曜日は5限に授業があったので、私が現場を訪れたのは18:00とかだったと記憶しています。調布祭を舐めていた僕は「僕が行く頃には全部準備終わってるだろうな〜」なんて思っていましたが、もちろんそんなことはなく、僕の目に飛び込んできたのは「桃鉄で遊ぶ鉄研部員」と「一度も試走してないレイアウト」そして「システム開発RTAをしている工研部員」でした。まだまだ僕の手伝うことは残っていそうです。</p>
+<pre><code>たこやき先輩「じゃありんりんくんはサーボモータ設置お願いします」
+僕「どのように設置したらいいんですか…？」
+たこやき先輩「んー、こんな感じで！」
+僕「(想像してたより力技だ…)」
+</code></pre>
+<img src="/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/001.jpg" class="" title="テープでサーボモータを貼り付けている様子">
+<p>ここから僕のテープペタペタ作業が始まりました。テープペタペタ貼るだけなので、そんなに大した仕事ではないのですが、場所によって工夫が必要だったりして意外と大変でした。(現にこの日だけでは余裕で貼り終わらなかった)</p>
+<p>19:00だか20:00だかそこらで教室を閉じなければいけないらしく、この日はほとんど進まなかったような気がします。(記憶が曖昧)</p>
+<h2 id="調布祭準備日"><a href="#調布祭準備日" class="headerlink" title="調布祭準備日"></a>調布祭準備日</h2><p>さてサーボモータの固定ですが、意外となかなかスムーズには行きません。高架橋の上に設置されてるレールに取り付ける際にはどうしたらいいのか？ポイントの切り替えは？複線だとサーボモータが干渉してしまう…などなど障壁は多かったです。</p>
+<p>1つ目の高架橋問題。別の橋脚を横に並べて、その橋脚にサーボモータを固定することで解決しました。初めはダンボールで台座を作ろうとしたのですが、数も多く面倒なためこの方法に行き着きました。</p>
+<p>2つ目のポイント切り替え問題。ポイントレールの切り替えバー？の部分を輪ゴムでどちらか片方に引っ張っておいて、切り替えたいときだけサーボモータで逆の方向に引っ張る仕様になっています。しかしゴムは摩擦が大きく、直接くくりつけるとスムーズに動きにくいので一旦糸を挟むことにしました。輪ゴムを直接括りつける箇所を無くしたので動きがスムーズになりました。</p>
+  <div class="subject-img"><a href="./004.jpg"><img src="./small-004.jpg"></a></div>
+<img src="/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/004.jpg" class="" title="ポイントレールのサーボ取り付け様子">
+
+
+<p>3つ目の複線でモータが干渉する問題。鉄研のみなさんに手伝っていただき、なんとかストップレールを組み替えて設置できました。ありがとうございます。</p>
+<p>そんなこんなで気づいたら終了時刻…続きは明日です。</p>
+<pre><code>僕「明日から調布祭ですよね…？？？？」
+先輩「調布祭1日目は準備日だから」
+僕「なるほど…(？？？)」
+</code></pre>
+<p>準備日だけでは余裕で終わらなかったので8:00登校することになってしまいました…。週末だしお酒飲みたかったけど朝起きづらくなるので我慢我慢。</p>
+<h2 id="調布祭1日目"><a href="#調布祭1日目" class="headerlink" title="調布祭1日目"></a>調布祭1日目</h2><p>8:00登校です。もくもくとテープをペタペタ、糸を結んでペタペタしていきます。私がテープをペタぺタしていると続々と先輩方もいらっしゃってシステム開発RTAが始まりました。そしてもちろん調布祭当日なのでレイアウトのYouTubeライブも始まり、僕らの作業風景が全世界に中継されはじめました。  </p>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a target="_blank" rel="noopener" href="https://twitter.com/ruu_uec/status/1330008401011634177"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>とは言ってもテープペタペタと配線が終われば私の仕事も終わりなので、他の皆さんを応援しながら動画と写真撮影に勤しむことにしました。</p>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a target="_blank" rel="noopener" href="https://twitter.com/lnln_ch/status/1330082048296574976"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>ポイントの自動切り替え映像↑↑↑↑</p>
+<img src="/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/002.jpg" class="" title="ぐるぐるした井の頭線">
+
+<p>暇になった私が魔改造した井の頭線↑↑↑↑</p>
+<img src="/blog/2020/12/25/%E8%AA%BF%E5%B8%83%E7%A5%AD%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%92%E3%81%97%E3%81%9F%E8%A9%B1/003.jpg" class="" title="特急の通過待ちをしている様子">
+<p>特急の通過待ち↑↑↑↑</p>
+<p>写真の奥に遠隔操作システム開発班のみなさんがいますね。おつかれさまです。</p>
+<p>夜はMIKUECを見て寝ましょう。</p>
+<h2 id="調布祭2日目"><a href="#調布祭2日目" class="headerlink" title="調布祭2日目"></a>調布祭2日目</h2><p>2日目です。もう僕がなにか作ることはないだろうと思っていましたが、もともとこの日はシフトが入っていた日だったので10:00頃に登校。するとホーム番号の看板を作って欲しいと部長から仕事が舞い降りました。部室のプリンタを使おうと思ったのですが、サークル棟が空いていなかったので一旦帰宅してgimpでぽちぽち…</p>
+  <div class="subject-img"><a href="./005.jpg"><img src="./small-005.jpg"></a></div>
+
+
+<p>実は調布祭カウントダウン企画とパンフレットの画像も私が作ったんですよね。最近やたらとgimpと向き合っている気がします。</p>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a target="_blank" rel="noopener" href="https://twitter.com/lnln_ch/status/1331202137636761601"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>印刷したらダンボールに貼り付けて切って完成です。私のものを作る仕事はこれで終わりです。</p>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a target="_blank" rel="noopener" href="https://twitter.com/lnln_ch/status/1330470398664847363"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>おひるごはんはロールスロイスみたいな名前のバーガー(Carl’s Jr)でした。</p>
+<h2 id="調布祭3日目"><a href="#調布祭3日目" class="headerlink" title="調布祭3日目"></a>調布祭3日目</h2><p>シフトの時間を勘違いしていました。ごめんなさい…<br>お片付けをして調布祭は終わりです。お掃除は 使う前より 美しく！！</p>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a target="_blank" rel="noopener" href="https://twitter.com/lnln_ch/status/1330805057558876160"></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>今年は忙しい年でしたが、工研に入って本当に良かったです。圧倒的感謝です。
+  </p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E3%82%82%E3%81%AE%E3%81%A5%E3%81%8F%E3%82%8A/" rel="tag"># ものづくり</a>
+              <a href="/blog/tags/AdventCalender/" rel="tag"># AdventCalender</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/12/18/Discord%E3%81%A7LaTeX%E3%82%92%E6%9B%B8%E3%81%8D%E3%81%9F%E3%81%84/" rel="prev" title="DiscordでLaTeXを書きたい">
+      <i class="fa fa-chevron-left"></i> DiscordでLaTeXを書きたい
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2021/12/16/%E9%83%A8%E5%AE%A4%E3%81%AE%E9%8D%B5%E3%82%92IC%E3%82%AB%E3%83%BC%E3%83%89%E3%81%A7%E9%96%8B%E3%81%91%E3%82%89%E3%82%8C%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F%E8%A9%B1/" rel="next" title="部室の鍵をICカードで開けられるようにした話">
+      部室の鍵をICカードで開けられるようにした話 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          見出し
+        </li>
+        <li class="sidebar-nav-overview">
+          概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%BF%E5%B8%83%E7%A5%AD%E6%BA%96%E5%82%99%E6%97%A5%E3%81%AE%E6%9B%B4%E3%81%AB%E5%89%8D%E6%97%A5"><span class="nav-number">1.</span> <span class="nav-text">調布祭準備日の更に前日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%BF%E5%B8%83%E7%A5%AD%E6%BA%96%E5%82%99%E6%97%A5"><span class="nav-number">2.</span> <span class="nav-text">調布祭準備日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%BF%E5%B8%83%E7%A5%AD1%E6%97%A5%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">調布祭1日目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%BF%E5%B8%83%E7%A5%AD2%E6%97%A5%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">調布祭2日目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AA%BF%E5%B8%83%E7%A5%AD3%E6%97%A5%E7%9B%AE"><span class="nav-number">5.</span> <span class="nav-text">調布祭3日目</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lnln_ch"
+      src="https://pbs.twimg.com/profile_images/1445826552197836801/tG_E7Vm3_400x400.jpg">
+  <p class="site-author-name" itemprop="name">lnln_ch</p>
+  <div class="site-description" itemprop="description">Twitter@lnln_ch のブログ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">ポスト</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">タグ</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/lnln_ch" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;lnln_ch" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://lnln.dev/" title="http:&#x2F;&#x2F;lnln.dev">lnln.dev</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lnln_ch</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
