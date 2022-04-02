@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/function%20()%20%7B%0A%20%20%20%20%20%20for%20(var%20_len2%20=%20arguments.length,%20args%20=%20new%20Array(_len2),%20_key2%20=%200;%20_key2%20%3C%20_len2;%20_key2++)%20%7B%0A%20%20%20%20%20%20%20%20args%5B_key2%5D%20=%20arguments%5B_key2%5D;%0A%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20return%20obj%5Bval%5D.apply(obj,%20args);%0A%20%20%20%20%7D">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans JP:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lnln.dev","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="これは工研新歓ブログリレーの2日目です。  前の記事: gotti.dev 博多のラーメン 次の記事: soon…  内容に縛りはないらしく前回は博多ラーメンのお話でしたが、せっかく新歓にかこつけているのでこの記事では自分がどうして工研に入ったのか、工研で何をしたのか、これから何をするのかについて適当に書きたいと思います。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工研新歓ブログリレー2022">
+<meta property="og:url" content="http://lnln.dev/blog/2022/04/02/%E5%B7%A5%E7%A0%94%E6%96%B0%E6%AD%93%E3%83%96%E3%83%AD%E3%82%B0%E3%83%AA%E3%83%AC%E3%83%BC2022/index.html">
+<meta property="og:site_name" content="りんりんログ">
+<meta property="og:description" content="これは工研新歓ブログリレーの2日目です。  前の記事: gotti.dev 博多のラーメン 次の記事: soon…  内容に縛りはないらしく前回は博多ラーメンのお話でしたが、せっかく新歓にかこつけているのでこの記事では自分がどうして工研に入ったのか、工研で何をしたのか、これから何をするのかについて適当に書きたいと思います。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://lnln.dev/works/lettuce/005.jpg">
+<meta property="og:image" content="https://lnln.dev/works/autoIH/thumbnail.jpg">
+<meta property="og:image" content="https://lnln.dev/works/KagiMod/KM4H.jpg">
+<meta property="og:image" content="https://lnln.dev/works/KagiMod/KM4K.jpg">
+<meta property="article:published_time" content="2022-04-01T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-02T10:29:46.613Z">
+<meta property="article:author" content="lnln_ch">
+<meta property="article:tag" content="UECKoken">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lnln.dev/works/lettuce/005.jpg">
+
+<link rel="canonical" href="http://lnln.dev/blog/2022/04/02/%E5%B7%A5%E7%A0%94%E6%96%B0%E6%AD%93%E3%83%96%E3%83%AD%E3%82%B0%E3%83%AA%E3%83%AC%E3%83%BC2022/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ja'
+  };
+</script>
+
+  <title>工研新歓ブログリレー2022 | りんりんログ</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="ナビゲーションバーの切り替え">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">りんりんログ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>ホーム</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>タグ</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>アーカイブ</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ja">
+    <link itemprop="mainEntityOfPage" href="http://lnln.dev/blog/2022/04/02/%E5%B7%A5%E7%A0%94%E6%96%B0%E6%AD%93%E3%83%96%E3%83%AD%E3%82%B0%E3%83%AA%E3%83%AC%E3%83%BC2022/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://pbs.twimg.com/profile_images/1445826552197836801/tG_E7Vm3_400x400.jpg">
+      <meta itemprop="name" content="lnln_ch">
+      <meta itemprop="description" content="Twitter@lnln_ch のブログ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="りんりんログ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工研新歓ブログリレー2022
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">投稿日</span>
+              
+
+              <time title="作成日：2022-04-02 00:00:00 / 修正日：19:29:46" itemprop="dateCreated datePublished" datetime="2022-04-02T00:00:00+09:00">2022-04-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>これは工研新歓ブログリレーの2日目です。</p>
+<ul>
+<li>前の記事: <a target="_blank" rel="noopener" href="https://gotti.dev/post/koken_blog_relay_2022_ramen/">gotti.dev 博多のラーメン</a></li>
+<li>次の記事: soon…</li>
+</ul>
+<p>内容に縛りはないらしく前回は博多ラーメンのお話でしたが、せっかく新歓にかこつけているのでこの記事では自分がどうして工研に入ったのか、工研で何をしたのか、これから何をするのかについて適当に書きたいと思います。</p>
+<span id="more"></span>
+
+<h2 id="自己紹介"><a href="#自己紹介" class="headerlink" title="自己紹介"></a>自己紹介</h2><p>電気通信大学20年度入学のりんりんです。<a href="https://lnln.dev/">こちら</a>になんかよくわからない自己紹介サイトがあります。</p>
+<h2 id="工研に入ったきっかけ"><a href="#工研に入ったきっかけ" class="headerlink" title="工研に入ったきっかけ"></a>工研に入ったきっかけ</h2><p>元から何かものを作ることが好きで、そういったサークルに入りたいという思いが入学前からありました。というかそもそも電通大に行きたかった動機の一つは多彩で独特な電通大の技術系サークルの存在が大きいです。MMAと工研ですこし悩みましたが、MMAより工研のほうが様々な幅のものづくりが許容されそうだったので工研を選びました。つまりは緩そうだったという面が大きいです。</p>
+<h2 id="工研でいままでやったこと"><a href="#工研でいままでやったこと" class="headerlink" title="工研でいままでやったこと"></a>工研でいままでやったこと</h2><p>工研に所属してからの間につくったもの、となるとどこまで含めてよいのかよくわからないですが、部報という部が出している謎の冊子に載せたものだけ紹介します。</p>
+<h3 id="水耕栽培"><a href="#水耕栽培" class="headerlink" title="水耕栽培"></a>水耕栽培</h3><p><img src="https://lnln.dev/works/lettuce/005.jpg" alt="水耕栽培の様子"></p>
+<p>一人暮らしを始めたら自分の部屋で育てたものを食べたい。と思っていたのでやってみました。工研では部報に記事を載せると、その作品にかかった金額の50%を援助(最大5000円)してもらえるので金銭的なハードルが下がりました。結果的にそこそこちゃんと育ってちゃんと食べることができて良かったです。一説には電通大生にとって一番忙しいと言われている1年後期の忙しさの中において、毎日の世話を続けるのも、それを完全に自動化するのも困難で現在は解体してしまいました。</p>
+<h3 id="IHコンロ自動制御"><a href="#IHコンロ自動制御" class="headerlink" title="IHコンロ自動制御"></a>IHコンロ自動制御</h3><p><img src="https://lnln.dev/works/autoIH/thumbnail.jpg" alt="改造したIHコンロの画像"></p>
+<p>これは工研で年に1回行われている工研コンテストというイベントのために作成した作品です。私は炊飯器を持っていないのでフライパンとIHコンロでお米を炊いていましたが、炊飯器のように放置することができないので自動化することにしました。初めはArduinoを用いて制御していましたが、のちにESP32に変えたりしました。制作において先輩にいろいろと教えていただけたので工研に入って良かったと思いました。ちなみにコンテストは当然コンテストなので全員の投票の結果によって表彰されて豪華景品がもらえたりするわくわくイベントになっています。</p>
+<h3 id="KagiMod-for-Home"><a href="#KagiMod-for-Home" class="headerlink" title="KagiMod for Home"></a>KagiMod for Home</h3><p><img src="https://lnln.dev/works/KagiMod/KM4H.jpg" alt="部屋のスマートロックの写真"></p>
+<p>部屋の鍵をスマートロックにしたものです。このとき初めて部の3Dプリンタを使用しました。3Dプリンタや卓上のボール盤、フライス盤、バンドソー、その他様々な工具が揃っているのも工研の強みだと思います。</p>
+<h3 id="KagiMod-for-Koken"><a href="#KagiMod-for-Koken" class="headerlink" title="KagiMod for Koken"></a>KagiMod for Koken</h3><p><img src="https://lnln.dev/works/KagiMod/KM4K.jpg" alt="部室のドアの写真"></p>
+<p>部屋の鍵をスマートにした経験を活かして部室の鍵もスマートにしました。部員がSuicaやPasmoなどを登録して自由で簡単に部室に出入りできるようになりました。</p>
+<h3 id="各種講習会"><a href="#各種講習会" class="headerlink" title="各種講習会"></a>各種講習会</h3><p>工研の活動はものづくりだけではありません。自分の技術を後世に伝えていくことも工研の活動の一つです。逆に言えば、工研では先輩の技術を教わって圧倒的成長(たぶん)ができます。講習会は毎年行っている定例のものと、個人が勝手にやっている不定期の雑講習と呼ばれるものがあります。</p>
+<h2 id="これからやりたいこと"><a href="#これからやりたいこと" class="headerlink" title="これからやりたいこと"></a>これからやりたいこと</h2><p>現在の工研の定例講習会ではCとRubyの2つのプログラミング言語を扱っていますが、それをさらに活用する講習会があると楽しいのではないかと感じています。そこでArduinoをつかってものを動かしたり光らせたりする講習会や、すこしレベルアップしてAVRマイコンを扱う講習会を開きたいなと思っています。大学入学前までプログラミングをしたことない人でも、自分で作った謎機械を自分でプログラミングして動かしたりできる楽しさを伝えられたらいいなと思ったり思わなかったりしているので、新入生の入部を楽しみにお待ちしております。</p>
+<p>ちなみに新2年生の方でしたらC言語を習得済みでしょうからすぐにでも始められると思います。新2年生以上の方の入部も大歓迎ですよ！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/UECKoken/" rel="tag"># UECKoken</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/12/25/%E3%82%82%E3%81%97%E3%82%82%E3%81%AE%E3%81%A8%E3%81%8D%E3%81%AB%E3%83%95%E3%83%A9%E3%82%A4%E3%83%91%E3%83%B3%E3%81%A7%E7%B1%B3%E3%82%92%E7%82%8A%E3%81%8F%E8%A9%B1/" rel="prev" title="もしものときにフライパンで米を炊く話">
+      <i class="fa fa-chevron-left"></i> もしものときにフライパンで米を炊く話
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          見出し
+        </li>
+        <li class="sidebar-nav-overview">
+          概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">自己紹介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E7%A0%94%E3%81%AB%E5%85%A5%E3%81%A3%E3%81%9F%E3%81%8D%E3%81%A3%E3%81%8B%E3%81%91"><span class="nav-number">2.</span> <span class="nav-text">工研に入ったきっかけ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E7%A0%94%E3%81%A7%E3%81%84%E3%81%BE%E3%81%BE%E3%81%A7%E3%82%84%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8"><span class="nav-number">3.</span> <span class="nav-text">工研でいままでやったこと</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B0%B4%E8%80%95%E6%A0%BD%E5%9F%B9"><span class="nav-number">3.1.</span> <span class="nav-text">水耕栽培</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IH%E3%82%B3%E3%83%B3%E3%83%AD%E8%87%AA%E5%8B%95%E5%88%B6%E5%BE%A1"><span class="nav-number">3.2.</span> <span class="nav-text">IHコンロ自動制御</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KagiMod-for-Home"><span class="nav-number">3.3.</span> <span class="nav-text">KagiMod for Home</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KagiMod-for-Koken"><span class="nav-number">3.4.</span> <span class="nav-text">KagiMod for Koken</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%84%E7%A8%AE%E8%AC%9B%E7%BF%92%E4%BC%9A"><span class="nav-number">3.5.</span> <span class="nav-text">各種講習会</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%81%93%E3%82%8C%E3%81%8B%E3%82%89%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8"><span class="nav-number">4.</span> <span class="nav-text">これからやりたいこと</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lnln_ch"
+      src="https://pbs.twimg.com/profile_images/1445826552197836801/tG_E7Vm3_400x400.jpg">
+  <p class="site-author-name" itemprop="name">lnln_ch</p>
+  <div class="site-description" itemprop="description">Twitter@lnln_ch のブログ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">ポスト</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">タグ</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/lnln_ch" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;lnln_ch" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://lnln.dev/" title="http:&#x2F;&#x2F;lnln.dev">lnln.dev</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lnln_ch</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-62469335fa1c4b64" async="async"></script>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
